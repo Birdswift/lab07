@@ -1,6 +1,5 @@
-FROM python:3
-LABEL mainteiner = Birdswift
-WORKDIR /app
-COPY . . 
-RUN apt-get update 
-CMD ["hello_world", "hello_world.cpp"]
+FROM gcc:latest
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+RUN g++ -o hello hello.cpp
+CMD ["./hello"]
